@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>空调助手</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">MCP 演示</p>
+      <h1>空调助手</h1>
+    </div>
+    <p id="llm-status" class="status">正在读取模型配置…</p>
+  </header>
+
+  <main>
+    <section class="chat-panel">
+      <div id="transcript" class="transcript" aria-live="polite">
+        <p class="hint">试着说「把空调温度降低一度」。客厅和卧室各有一台在线空调，书房那台是离线的。没指明是哪一台时，助手会先问你。</p>
+      </div>
+      <form id="composer">
+        <div class="suggestions">
+          <button type="button" data-text="把空调温度降低一度">把空调温度降低一度</button>
+          <button type="button" data-text="把空调A设置为大概27度">把空调A设置为大概27度</button>
+          <button type="button" data-text="把书房空调调到25度">把书房空调调到25度</button>
+        </div>
+        <div class="composer-row">
+          <textarea id="input" rows="2" placeholder="说出你要做的事" maxlength="2000"></textarea>
+          <button id="send" type="submit">发送</button>
+        </div>
+      </form>
+    </section>
+
+    <aside>
+      <section>
+        <div class="section-head">
+          <h2>设备</h2>
+          <button id="reset-devices" type="button">恢复初始温度</button>
+        </div>
+        <div id="devices" class="devices"></div>
+      </section>
+      <section>
+        <div class="section-head">
+          <h2>本轮过程</h2>
+          <button id="clear-chat" type="button">清空对话</button>
+        </div>
+        <ol id="steps" class="steps">
+          <li class="empty">发送一句话后，这里会按顺序显示连接 MCP、模型决定和工具结果。</li>
+        </ol>
+      </section>
+    </aside>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+server:
+  port: 8090
+  address: 0.0.0.0
+
+spring:
+  config:
+    import: optional:file:./application-local.yml
+  main:
+    banner-mode: off
+  ai:
+    mcp:
+      server:
+        name: demo-add
+        version: 0.0.1
+        protocol: STREAMABLE
+        type: SYNC
+        instructions: 学习用的 MCP 服务器。空调工具 find_air_conditioners 按名称查找设备，set_temperature 修改设定温度。另外保留 add、divide 和资源 lesson://notes。可通过 HTTP 远程访问。
+        streamable-http:
+          mcp-endpoint: /mcp
+
+  web:
+    resources:
+      cache:
+        period: 0
